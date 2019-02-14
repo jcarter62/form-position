@@ -1,0 +1,36 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{25DB5A48-9A97-4275-AA37-97FA65781D0B}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="form_position.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="form_position">
+        <MSBuild Projects="form_position.dproj"/>
+    </Target>
+    <Target Name="form_position:Clean">
+        <MSBuild Projects="form_position.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="form_position:Make">
+        <MSBuild Projects="form_position.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="form_position"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="form_position:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="form_position:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
